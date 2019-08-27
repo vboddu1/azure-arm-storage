@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_miracle_name": {
+        "storageAccounts_miraclestorage1_name": {
             "defaultValue": "miraclestorage1",
             "type": "String"
         },
@@ -16,7 +16,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-04-01",
-            "name": "[parameters('storageAccounts_miracle_name')]",
+            "name": "[parameters('storageAccounts_miraclestorage1_name')]",
             "location": "centralus",
             "sku": {
                 "name": "Standard_RAGRS",
@@ -54,9 +54,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2019-04-01",
-            "name": "[concat(parameters('storageAccounts_miracle_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_miraclestorage1_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_miracle_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_miraclestorage1_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -70,10 +70,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2019-04-01",
-            "name": "[concat(parameters('storageAccounts_miracle_name'), '/default/', parameters('storageAccounts_miracle_name'))]",
+            "name": "[concat(parameters('storageAccounts_miraclestorage1_name'), '/default/', parameters('storageAccounts_miraclestorage1_name'))]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_miracle_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_miracle_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_miraclestorage1_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_miraclestorage1_name'))]"
             ],
             "properties": {
                 "publicAccess": "None"

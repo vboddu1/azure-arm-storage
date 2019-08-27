@@ -6,7 +6,7 @@
             "value": "miraclestorage1"
         },
         "virtualNetworks_VNet_1_externalid": {
-            "value": null
+            "value":"/subscriptions/90a2f185-6456-4b47-a481-9c15ebc254a2/resourceGroups/project/providers/Microsoft.Network/virtualNetworks/VNet_1"
         }
     }
 }
